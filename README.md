@@ -1,6 +1,6 @@
 # **SMART SECURITY CAMERA PROJECT**
 
-The files in this repository are used to do training and testing process for object detection models using TensorFlow.
+The files in this repository are used to do training and testing process for object detection model using TensorFlow.
 
 ## Dataset Information:
 
@@ -11,7 +11,7 @@ The files in this repository are used to do training and testing process for obj
 
 
 ## Data Preparation
-Berikut ini adalah tahapan-tahapan dalam melakukan _data preparation_:<br>
+The following are the steps that we use do data preparation before training the model:<br>
 
 - Parsing the annotations<br>
 Parsing the annotations data previously in xml format into a python dictionary.
@@ -36,7 +36,7 @@ Rescale all object configurations such as center x, center y, and data anchor bo
 
 This object detection system in this project is built using the YOLOv2 algorithm. The model is trainned using tensorflow keras models.
 
-In the modeling process, a transfer learning process is carried out where several weights in keras model layers are initialized with the values obtained from the [yolov2 weight](https://pjreddie.com/darknet/yolov2/). Then, do model training process.
+In the modeling process, a transfer learning process is carried out where several weights in keras model layers are initialized with the values obtained from the [yolov2 weight](https://pjreddie.com/darknet/yolov2/). Then, do the model training process.
 
 The model prediction output is still raw data output. These results need to be rescaled such as the prediction output for the data width, height, and confidence is rescaled using sigmoid calculations, the prediction output for anchor boxes is rescaled using exponential calculations, and the predicted label output is rescaled using softmax calculations. Then finding the best predictied object boxes based on comparation each bounding box using intersection over union (IOU) calculation and the specified threshold confidence value.
 
@@ -53,7 +53,7 @@ The following are the results of the model prediction results on data test:
 
 The following are the steps to use this repository:
 
-1. Run the train.ipnb file on google colab using GPU, this process will generate a model where this model will later be stored directly on the mounted google drive account.<br>
+1. Run the train.ipynb file on google colab using GPU, this process will generate a model where this model will later be stored directly on the mounted google drive account.<br>
 OR<br>
 You can also download the model directly via this link: [LINK](https://drive.google.com/drive/folders/1AzrFCmpyjkhPBnCQHWUBDc0IfMfLvrSU?usp=sharing).
 
