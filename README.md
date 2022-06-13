@@ -11,9 +11,9 @@ The files in this repository are used to do training and testing process for obj
 
 
 ## Data Preparation
-The following are the steps that we use do data preparation before training the model:<br>
+The following are the steps that we use to do data preparation before training the model:<br>
 
-- Parsing the annotations<br>
+- Parse the annotations<br>
 Parsing the annotations data previously in xml format into a python dictionary.
 
 - Data filtering<br>
@@ -25,7 +25,7 @@ Split the dataset into train data, validation data, and test data.
 - Resize and normalize image data<br>
 Perform resizing and normalizing on data images so that they have the same dimentional size and range of values.
 
-- Finding anchor boxes<br>
+- Find anchor boxes<br>
 Find the number of clusters and centroids value that represent all width and height data using the cluster kmean where each distance calculated using the intersection over union (IOU) method.
 
 - Rescale the object configuration<br>
@@ -34,9 +34,10 @@ Rescale all object configurations such as center x, center y, and data anchor bo
 
 ## Modeling
 
-This object detection system in this project is built using the YOLOv2 algorithm. The model is trainned using tensorflow keras models.
+The object detection model in this project is built using the YOLOv2 algorithm. The model is trainned using tensorflow keras models.
 
-In the modeling process, a transfer learning process is carried out where several weights in keras model layers are initialized with the values obtained from the [yolov2 weight](https://pjreddie.com/darknet/yolov2/). Then, do the model training process.
+In the modeling process, a transfer learning process is carried out where several weights in keras model layers are initialized with the values obtained from the [yolov2 weight](https://pjreddie.com/darknet/yolov2/). Here is the accuracy that we got in the model training process:
+- ![Accuracy](./assets/3.png)<br>
 
 The model prediction output is still raw data output. These results need to be rescaled such as the prediction output for the data width, height, and confidence is rescaled using sigmoid calculations, the prediction output for anchor boxes is rescaled using exponential calculations, and the predicted label output is rescaled using softmax calculations. Then finding the best predictied object boxes based on comparation each bounding box using intersection over union (IOU) calculation and the specified threshold confidence value.
 
